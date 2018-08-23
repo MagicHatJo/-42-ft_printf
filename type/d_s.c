@@ -6,7 +6,7 @@
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 19:54:50 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/23 15:56:11 by jochang          ###   ########.fr       */
+/*   Updated: 2018/08/23 16:01:29 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ int			d_s(t_opts opts, va_list ap)
 		return (d_us(opts, ap));
 	}
 	error_check(opts);
-	ZERO_CHECK(!(s = va_arg(ap, char *)));
+	if (!(s = va_arg(ap, char *)))
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	len = ft_strlen(s);
 	if (opts.precision >= 0)
 		len = MIN(len, opts.precision);

@@ -6,7 +6,7 @@
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 17:50:01 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/23 15:56:26 by jochang          ###   ########.fr       */
+/*   Updated: 2018/08/23 16:02:08 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ int			d_us(t_opts opts, va_list ap)
 	uint32_t	len;
 
 	error_check(opts);
-	ZERO_CHECK(!(w = va_arg(ap, wchar_t*)));
+	if (!(w = va_arg(ap, wchar_t*)))
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	len = ft_wcslen(w);
 	if (opts.precision >= 0)
 		len = MIN((int)len, opts.precision);
