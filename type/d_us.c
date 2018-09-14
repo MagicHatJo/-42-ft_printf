@@ -17,32 +17,32 @@ static void	error_check(t_opts opts)
 	if (opts.flags.pound + opts.flags.zero +
 		opts.flags.plus + opts.flags.space > 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 	if (opts.length != 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 }
 
-static void	ft_putspaces(int size)
+static void	pt_putspaces(int size)
 {
 	int		i;
 
 	i = 0;
 	while (i++ < size)
-		ft_putchar(' ');
+		pt_putchar(' ');
 }
 
 static void	padding(wchar_t *s, int size, int len, int left_align)
 {
 	if (!left_align && size > len)
-		ft_putspaces(size - len);
-	ft_putwstr(s);
+		pt_putspaces(size - len);
+	pt_putwstr(s);
 	if (left_align && size > len)
-		ft_putspaces(size - len);
+		pt_putspaces(size - len);
 }
 
 int			d_us(t_opts opts, va_list ap)
@@ -56,7 +56,7 @@ int			d_us(t_opts opts, va_list ap)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	len = ft_wcslen(w);
+	len = pt_wcslen(w);
 	if (opts.precision >= 0)
 		len = MIN((int)len, opts.precision);
 	padding(w, opts.width, len, opts.flags.minus);

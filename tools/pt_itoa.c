@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoo.c                                          :+:      :+:    :+:   */
+/*   pt_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 14:27:35 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/22 14:39:27 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/23 23:11:46 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/13 15:08:46 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char	*ft_itoo(uint64_t n)
+char	*pt_itoa(int64_t n)
 {
-	int		i;
-	char	*s;
-	char	*oct;
+	char	*str;
+	int		sign;
+	int		len;
 
-	NULL_CHECK(!(s = (char*)ft_strnew(12)));
-	oct = "01234567";
-	i = (n == 0 ? 1 : 0);
-	if (n == 0)
-		s[0] = '0';
+	sign = (n >= 0 ? 1 : -1);
+	len = pt_placevalue(n) + (sign >= 0 ? 0 : 1);
+	str = (char*)pt_strnew(len + 1);
+	NULL_CHECK(!str);
+	IF_TRUE(n == 0, str[0] = '0');
+	len--;
 	while (n)
 	{
-		s[i] = oct[n & 7];
-		n >>= 3;
-		i++;
+		str[len] = (n % 10) * sign + '0';
+		n /= 10;
+		len--;
 	}
-	s[i] = '\0';
-	ft_strrev(s);
-	return (s);
+	IF_TRUE(sign == -1, str[len] = '-');
+	return (str);
 }

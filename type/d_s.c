@@ -17,12 +17,12 @@ static void	error_check(t_opts opts)
 	if (opts.flags.pound + opts.flags.zero +
 		opts.flags.plus + opts.flags.space > 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 	if (opts.length != 0 && opts.length != 108)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 }
@@ -31,13 +31,13 @@ static char	*padding(char *s, int size, int len, int left_align)
 {
 	char	*str;
 
-	NULL_CHECK(!(str = (char*)ft_memalloc(size + 1)));
-	ft_memset(str, ' ', size);
+	NULL_CHECK(!(str = (char*)pt_memalloc(size + 1)));
+	pt_memset(str, ' ', size);
 	str[size] = '\0';
 	if (left_align)
-		ft_strncpy(str, s, len);
+		pt_strncpy(str, s, len);
 	else
-		ft_strncpy(&str[size - len], s, len);
+		pt_strncpy(&str[size - len], s, len);
 	free(s);
 	return (str);
 }
@@ -58,14 +58,14 @@ int			d_s(t_opts opts, va_list ap)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	len = ft_strlen(s);
+	len = pt_strlen(s);
 	if (opts.precision >= 0)
 		len = MIN(len, opts.precision);
-	s = ft_strndup(s, len);
+	s = pt_strndup(s, len);
 	if (opts.width > (uint32_t)len)
 		s = padding(s, opts.width, len, opts.flags.minus);
-	ft_putstr(s);
-	len = ft_strlen(s);
+	pt_putstr(s);
+	len = pt_strlen(s);
 	free(s);
 	return (len);
 }

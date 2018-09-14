@@ -16,6 +16,6 @@ int		d_percent(t_opts opts, va_list ap)
 {
 	(void)opts;
 	(void)ap;
-	ft_putchar('%');
+	pt_putchar('%');
 	return (1);
 }

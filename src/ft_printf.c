@@ -30,7 +30,7 @@ static int	flagged(char **str, va_list ap)
 
 static int	normal(char **str)
 {
-	ft_putchar(**str);
+	pt_putchar(**str);
 	(*str)++;
 	return (1);
 }

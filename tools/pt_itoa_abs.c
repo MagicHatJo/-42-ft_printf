@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_abs.c                                      :+:      :+:    :+:   */
+/*   pt_itoa_abs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,15 +12,15 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_itoa_abs(int64_t n)
+char	*pt_itoa_abs(int64_t n)
 {
 	char	*str;
 	int		sign;
 	int		len;
 
 	sign = (n >= 0 ? 1 : -1);
-	len = ft_placevalue(n);
-	str = (char*)ft_strnew(len + 1);
+	len = pt_placevalue(n);
+	str = (char*)pt_strnew(len + 1);
 	NULL_CHECK(!str);
 	IF_TRUE(n == 0, str[0] = '0');
 	len--;

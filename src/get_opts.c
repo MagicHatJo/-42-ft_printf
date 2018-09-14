@@ -47,7 +47,7 @@ static uint32_t	get_width(char **str, va_list ap)
 	w = 0;
 	if (IS_DIGIT(**str))
 	{
-		w = ft_atoi(*str);
+		w = pt_atoi(*str);
 		while (IS_DIGIT(**str))
 			(*str)++;
 	}
@@ -70,7 +70,7 @@ static int32_t	get_precision(char **str, va_list ap)
 		(*str)++;
 		if (IS_DIGIT(**str))
 		{
-			p = ft_atoi(*str);
+			p = pt_atoi(*str);
 			while (IS_DIGIT(**str))
 				(*str)++;
 		}

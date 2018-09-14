@@ -33,12 +33,12 @@ static uint64_t	get_num(uint32_t length, va_list ap)
 	return (n);
 }
 
-static char		*ft_itob(uint64_t n)
+static char		*pt_itob(uint64_t n)
 {
 	int		i;
 	char	*s;
 
-	NULL_CHECK(!(s = (char*)ft_strnew(32)));
+	NULL_CHECK(!(s = (char*)pt_strnew(32)));
 	i = (n == 0 ? 1 : 0);
 	if (n == 0)
 		s[0] = '0';
@@ -48,7 +48,7 @@ static char		*ft_itob(uint64_t n)
 		n >>= 1;
 		i++;
 	}
-	ft_strrev(s);
+	pt_strrev(s);
 	return (s);
 }
 
@@ -56,12 +56,12 @@ static char		*padding(char *s, int len, t_opts opts)
 {
 	char	*str;
 
-	NULL_CHECK(!(str = (char*)ft_strnew(opts.width)));
-	ft_memset(str, ' ', opts.width);
+	NULL_CHECK(!(str = (char*)pt_strnew(opts.width)));
+	pt_memset(str, ' ', opts.width);
 	if (opts.flags.minus)
-		ft_strncpy(str, s, len);
+		pt_strncpy(str, s, len);
 	else
-		ft_strncpy(&str[opts.width - len], s, len);
+		pt_strncpy(&str[opts.width - len], s, len);
 	free(s);
 	return (str);
 }
@@ -74,12 +74,12 @@ int				d_b(t_opts opts, va_list ap)
 
 	error_check(opts);
 	n = get_num(opts.length, ap);
-	s = ft_itob(n);
-	len = ft_strlen(s);
+	s = pt_itob(n);
+	len = pt_strlen(s);
 	if (opts.width > (uint32_t)len)
 		s = padding(s, len, opts);
-	ft_putstr(s);
-	len = ft_strlen(s);
+	pt_putstr(s);
+	len = pt_strlen(s);
 	free(s);
 	return (len);
 }

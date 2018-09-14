@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   pt_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../inc/ft_printf.h"
 
-int	ft_atoi(const char *str)
+int	pt_atoi(const char *str)
 {
 	int i;
 	int n;
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	n = 0;
 	s = 1;
-	while (ft_isspace(str[i]))
+	while (pt_isspace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

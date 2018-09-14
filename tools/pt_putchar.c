@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placevalue.c                                    :+:      :+:    :+:   */
+/*   pt_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/23 23:20:03 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/13 15:09:55 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/18 00:53:06 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/10 20:51:54 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int		ft_placevalue(int64_t n)
+void	pt_putchar(char c)
 {
-	int count;
-
-	count = 0;
-	if (!n)
-		return (1);
-	while (n)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
+	write(1, &c, 1);
 }

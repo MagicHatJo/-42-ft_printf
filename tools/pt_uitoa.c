@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   pt_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_uitoa(uint64_t n)
+char	*pt_uitoa(uint64_t n)
 {
 	char	*str;
 	int		len;
 
-	len = ft_upval(n);
-	str = (char*)ft_strnew(len + 1);
+	len = pt_upval(n);
+	str = (char*)pt_strnew(len + 1);
 	NULL_CHECK(!str);
 	IF_TRUE(n == 0, str[0] = '0');
 	len--;

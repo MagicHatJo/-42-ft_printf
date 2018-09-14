@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   pt_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 #include "../inc/ft_printf.h"
 
-char	*ft_strrev(char *str)
+char	*pt_strrev(char *str)
 {
 	int		i;
 	int		k;
 
 	i = -1;
-	k = ft_strlen(str);
+	k = pt_strlen(str);
 	while (++i < --k)
 	{
 		str[i] ^= str[k];

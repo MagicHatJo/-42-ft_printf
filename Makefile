@@ -6,7 +6,7 @@
 #    By: jochang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/10 20:03:27 by jochang           #+#    #+#              #
-#    Updated: 2018/08/22 21:25:41 by jochang          ###   ########.fr        #
+#    Updated: 2018/09/06 21:04:15 by jochang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,29 +32,29 @@ TYPE =type/d_s.c \
 	  type/d_percent.c \
 	  type/d_b.c
 
-TOOL =tools/ft_putchar.c \
-	  tools/ft_atoi.c \
-	  tools/ft_strlen.c \
-	  tools/ft_putstr.c \
-	  tools/ft_isspace.c \
-	  tools/ft_strndup.c \
-	  tools/ft_strncpy.c \
-	  tools/ft_memalloc.c \
-	  tools/ft_bzero.c \
-	  tools/ft_memset.c \
-	  tools/ft_wcslen.c \
-	  tools/ft_memcpy.c \
-	  tools/ft_itoa.c \
-	  tools/ft_placevalue.c \
-	  tools/ft_strnew.c \
-	  tools/ft_itoa_abs.c \
-	  tools/ft_uitoa.c \
-	  tools/ft_strrev.c \
-	  tools/ft_itoh.c \
-	  tools/ft_upval.c \
-	  tools/ft_putwstr.c \
-	  tools/ft_putwchar.c \
-	  tools/ft_itoo.c
+TOOL =tools/pt_putchar.c \
+	  tools/pt_atoi.c \
+	  tools/pt_strlen.c \
+	  tools/pt_putstr.c \
+	  tools/pt_isspace.c \
+	  tools/pt_strndup.c \
+	  tools/pt_strncpy.c \
+	  tools/pt_memalloc.c \
+	  tools/pt_bzero.c \
+	  tools/pt_memset.c \
+	  tools/pt_wcslen.c \
+	  tools/pt_memcpy.c \
+	  tools/pt_itoa.c \
+	  tools/pt_placevalue.c \
+	  tools/pt_strnew.c \
+	  tools/pt_itoa_abs.c \
+	  tools/pt_uitoa.c \
+	  tools/pt_strrev.c \
+	  tools/pt_itoh.c \
+	  tools/pt_upval.c \
+	  tools/pt_putwstr.c \
+	  tools/pt_putwchar.c \
+	  tools/pt_itoo.c
 
 OBJ = *.o
 
@@ -67,16 +67,17 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
+	@echo "\033[32mmaking libftprintf...\033[0m"
 	@gcc $(CFLAGS) -c $(SRC) $(TYPE) $(TOOL) -I $(INC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
 clean:
+	@echo "\033[33mcleaning libftprintf repository...\033[0m"
 	@rm -f $(OBJ)
-	@rm -f inc/*.gch
 
 fclean: clean
+	@echo "\033[33mremoving libftprintf library file...\033[0m"
 	@rm -f $(NAME)
-	@rm -f *.a
 
 re: fclean all

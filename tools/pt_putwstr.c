@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   pt_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 00:28:19 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/12 20:27:05 by jochang          ###   ########.fr       */
+/*   Created: 2018/08/21 21:50:35 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/21 22:11:50 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+void	pt_putwstr(wchar_t *s)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	while (i < len && src[i])
+	while (s[i])
 	{
-		dst[i] = src[i];
+		write(1, &s[i], 1);
 		i++;
 	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
 }

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   pt_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/22 23:48:59 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/12 14:59:38 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/18 00:54:48 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/10 20:52:05 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	*ft_memalloc(size_t size)
+void	pt_putstr(char const *s)
 {
-	void	*temp;
-
-	temp = (void*)malloc(size);
-	NULL_CHECK(!temp);
-	ft_bzero(temp, size);
-	return (temp);
+	IF_EXISTS(s, write(1, s, pt_strlen(s)));
 }

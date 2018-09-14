@@ -16,7 +16,7 @@ static void		error_check(t_opts opts)
 {
 	if (opts.flags.pound != 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 	if (opts.length != 104 && opts.length != 208 &&
@@ -24,7 +24,7 @@ static void		error_check(t_opts opts)
 		opts.length != 106 && opts.length != 122 &&
 		opts.length != 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 }
@@ -50,14 +50,14 @@ static char		*pad_precision(char *s, int n, int precision)
 	int		len;
 	char	*str;
 
-	len = ft_strlen(s);
+	len = pt_strlen(s);
 	if (len >= precision && !(precision == 0 && n == 0))
 		return (s);
-	NULL_CHECK(!(str = (char*)ft_strnew(precision)));
-	str = ft_memset(str, '0', precision);
+	NULL_CHECK(!(str = (char*)pt_strnew(precision)));
+	str = pt_memset(str, '0', precision);
 	str[precision] = '\0';
 	if (precision > len)
-		ft_memcpy(&str[precision - len], s, len);
+		pt_memcpy(&str[precision - len], s, len);
 	free(s);
 	return (str);
 }
@@ -68,17 +68,17 @@ static char		*padding(char *s, t_opts opts)
 	int		len;
 	int		l;
 
-	len = ft_strlen(s) + ((opts.flags.plus || opts.flags.space) ? 1 : 0);
+	len = pt_strlen(s) + ((opts.flags.plus || opts.flags.space) ? 1 : 0);
 	len = ((uint32_t)len > opts.width ? len : opts.width);
-	NULL_CHECK(!(str = (char*)ft_strnew(len)));
-	ft_memset(str, ((opts.flags.zero && !opts.flags.minus) ?
+	NULL_CHECK(!(str = (char*)pt_strnew(len)));
+	pt_memset(str, ((opts.flags.zero && !opts.flags.minus) ?
 				'0' : ' '), len);
 	str[len] = '\0';
-	l = ft_strlen(s);
+	l = pt_strlen(s);
 	if (opts.flags.minus)
-		ft_strncpy(str, s, l);
+		pt_strncpy(str, s, l);
 	else
-		ft_strncpy(&str[len - l], s, l);
+		pt_strncpy(&str[len - l], s, l);
 	free(s);
 	return (str);
 }
@@ -91,11 +91,11 @@ int				d_uu(t_opts opts, va_list ap)
 
 	error_check(opts);
 	n = get_num(opts.length, ap);
-	s = ft_uitoa(n);
+	s = pt_uitoa(n);
 	s = pad_precision(s, n, opts.precision);
 	s = padding(s, opts);
-	ft_putstr(s);
-	len = ft_strlen(s);
+	pt_putstr(s);
+	len = pt_strlen(s);
 	free(s);
 	return (len);
 }

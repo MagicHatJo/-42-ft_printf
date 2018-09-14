@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   pt_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 21:41:49 by jochang           #+#    #+#             */
-/*   Updated: 2018/04/20 00:45:13 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/23 00:42:10 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/13 13:41:09 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*pt_strnew(size_t size)
 {
-	unsigned char	*dst;
+	char	*temp;
 
-	dst = (unsigned char*)b;
-	while (len--)
-		dst[len] = c;
-	return (b);
+	NULL_CHECK(!(temp = (char*)malloc(size + 1)));
+	temp = pt_memset(temp, '\0', size + 1);
+	return (temp);
 }

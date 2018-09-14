@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   pt_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 00:11:11 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/10 20:52:14 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/18 21:41:49 by jochang           #+#    #+#             */
+/*   Updated: 2018/04/20 00:45:13 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+void	*pt_memset(void *b, int c, size_t len)
 {
-	int i;
+	unsigned char	*dst;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	dst = (unsigned char*)b;
+	while (len--)
+		dst[len] = c;
+	return (b);
 }

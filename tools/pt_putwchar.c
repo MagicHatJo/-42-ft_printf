@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   pt_putwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 00:33:13 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/12 14:59:50 by jochang          ###   ########.fr       */
+/*   Created: 2018/08/22 00:21:21 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/22 00:21:51 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_bzero(void *str, size_t n)
+void	pt_putwchar(wchar_t c)
 {
-	size_t			i;
-	unsigned char	*src;
-
-	i = 0;
-	src = str;
-	while (i < n)
-		src[i++] = 0;
+	write(1, &c, 1);
 }

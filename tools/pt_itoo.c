@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwstr.c                                       :+:      :+:    :+:   */
+/*   pt_itoo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/21 21:50:35 by jochang           #+#    #+#             */
-/*   Updated: 2018/08/21 22:11:50 by jochang          ###   ########.fr       */
+/*   Created: 2018/08/22 14:27:35 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/22 14:39:27 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_putwstr(wchar_t *s)
+char	*pt_itoo(uint64_t n)
 {
 	int		i;
+	char	*s;
+	char	*oct;
 
-	i = 0;
-	while (s[i])
+	NULL_CHECK(!(s = (char*)pt_strnew(12)));
+	oct = "01234567";
+	i = (n == 0 ? 1 : 0);
+	if (n == 0)
+		s[0] = '0';
+	while (n)
 	{
-		write(1, &s[i], 1);
+		s[i] = oct[n & 7];
+		n >>= 3;
 		i++;
 	}
+	s[i] = '\0';
+	pt_strrev(s);
+	return (s);
 }

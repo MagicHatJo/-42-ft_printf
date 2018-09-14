@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   pt_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/17 23:58:36 by jochang           #+#    #+#             */
-/*   Updated: 2018/04/26 07:02:21 by jochang          ###   ########.fr       */
+/*   Created: 2018/04/18 00:33:13 by jochang           #+#    #+#             */
+/*   Updated: 2018/08/12 14:59:50 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+#include "../inc/ft_printf.h"
+
+void	pt_bzero(void *str, size_t n)
 {
-	return ((c == '\t' || c == '\n' || c == '\v' ||
-			c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
+	size_t			i;
+	unsigned char	*src;
+
+	i = 0;
+	src = str;
+	while (i < n)
+		src[i++] = 0;
 }

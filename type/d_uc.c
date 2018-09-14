@@ -17,37 +17,37 @@ static void	error_check(t_opts opts)
 	if (opts.flags.pound + opts.flags.zero +
 		opts.flags.plus + opts.flags.space > 0)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 	if (opts.precision != -1)
 	{
-		ft_putstr("error: undefined behavior\n");
+		pt_putstr("error: undefined behavior\n");
 		exit(1);
 	}
 	if (opts.length != 0)
 	{
-		ft_putstr("error: undefined behavior");
+		pt_putstr("error: undefined behavior");
 		exit(1);
 	}
 }
 
-static void	ft_putspaces(int size)
+static void	pt_putspaces(int size)
 {
 	int		i;
 
 	i = 0;
 	while (i++ < size)
-		ft_putchar(' ');
+		pt_putchar(' ');
 }
 
 static void	padding(char c, int size, int left_align)
 {
 	if (!left_align && size)
-		ft_putspaces(size - 1);
-	ft_putwchar(c);
+		pt_putspaces(size - 1);
+	pt_putwchar(c);
 	if (left_align && size)
-		ft_putspaces(size - 1);
+		pt_putspaces(size - 1);
 	return ;
 }
 
